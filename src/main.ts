@@ -4,7 +4,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-let popup: any = undefined;
+let popupTest: any = undefined;
 
 // Waiting for the API to be ready
 WA.onInit().then(() => {
@@ -57,19 +57,6 @@ WA.onInit().then(() => {
     WA.room.area.onEnter('banner').subscribe(() => {
         WA.ui.banner.openBanner({
             // @ts-ignore
-            id: 'banner-test',
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            bgColor: "rgb(65, 86, 246)",
-            textColor: "#ffffff",
-            closable: true,
-            timeToClose: 120000,
-            link: {
-                label: "Button exemple",
-                url: "https://workadventu.re"
-            }
-        });
-        WA.ui.banner.openBanner({
-            // @ts-ignore
             id: 'banner-test2',
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             bgColor: "rgb(65, 86, 246)",
@@ -84,22 +71,29 @@ WA.onInit().then(() => {
     })
 
     WA.room.area.onEnter('popupZone').subscribe(() => {
-        popup = WA.ui.openPopup("popup", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+        popupTest = WA.ui.openPopup("popupTest", "Test popup OK Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",[{
+                label: "Close",
+                className: "primary",
+                callback: (popup) => {
+                    // Close the popup when the "Close" button is pressed.
+                    popup.close();
+                    }
+                }]);
     })
 
     WA.room.area.onLeave('popupZone').subscribe(closePopup);
 
-    WA.room.area.onEnter('popupWide').subscribe(() => {
+    WA.room.area.onEnter('popupWideZone').subscribe(() => {
         WA.ui.modal.openModal({
             src: "https://hugoaverty.github.io/eiffage-UI/src/",
             allow: "fullscreen",
             title: "Bienvenue",
             allowApi: true,
-            position: "center",
+            position: "left",
         });
     })
 
-    WA.room.area.onLeave('popupWide').subscribe(() => {
+    WA.room.area.onLeave('popupWideZone').subscribe(() => {
         WA.ui.modal.closeModal();
     })
 
@@ -113,9 +107,9 @@ WA.onInit().then(() => {
 }).catch(e => console.error(e));
 
 function closePopup(){
-    if (popup !== undefined) {
-        popup.close();
-        popup = undefined;
+    if (popupTest !== undefined) {
+        popupTest.close();
+        popupTest = undefined;
     }
 }
 

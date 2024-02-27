@@ -1308,9 +1308,9 @@
                 {
                  "height":101.833333333333,
                  "id":36,
-                 "name":"popup",
+                 "name":"popupTest",
                  "rotation":0,
-                 "type":"",
+                 "type":"area",
                  "visible":true,
                  "width":238.166666666667,
                  "x":1049.16666666667,
