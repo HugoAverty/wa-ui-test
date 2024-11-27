@@ -1319,7 +1319,7 @@
                 {
                  "height":92,
                  "id":39,
-                 "name":"actionMesage",
+                 "name":"actionMessage",
                  "rotation":0,
                  "type":"area",
                  "visible":true,
