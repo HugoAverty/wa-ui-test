@@ -24,7 +24,7 @@ WA.onInit().then(() => {
             id: 'help-btn',
             // @ts-ignore
             type: 'action',
-            imageSrc: 'https://svgur.com/i/10Sh.svg',
+            imageSrc: './map.png',
             toolTip: 'Test BTN 1',
             callback: () => {
                 WA.nav.openCoWebSite("https://hugoaverty.github.io/eiffage-UI/src/help.pdf");
