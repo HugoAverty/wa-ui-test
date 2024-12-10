@@ -53,6 +53,24 @@ WA.onInit().then(() => {
             }
         });
     })
+    
+    WA.room.area.onEnter('multiplePopup').subscribe(() => {
+        WA.ui.displayActionMessage({
+            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            callback: () => {
+                WA.chat.sendChatMessage("confirmed", "trigger message logic")
+            }
+        });
+    })
+    
+    WA.room.area.onEnter('multiplePopup').subscribe(() => {
+        WA.ui.displayActionMessage({
+            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, officia deserunt mollit anim id est laborum.",
+            callback: () => {
+                WA.chat.sendChatMessage("confirmed", "trigger message logic")
+            }
+        });
+    })
 
     WA.room.area.onEnter('banner').subscribe(() => {
         WA.ui.banner.openBanner({
@@ -73,7 +91,7 @@ WA.onInit().then(() => {
     WA.room.area.onEnter('popupZone').subscribe(() => {
         popupTest = WA.ui.openPopup("popupTest", "Test popup OK Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",[{
                 label: "Close",
-                className: "primary",
+                className: "btn-secondary",
                 callback: (popup) => {
                     // Close the popup when the "Close" button is pressed.
                     popup.close();
